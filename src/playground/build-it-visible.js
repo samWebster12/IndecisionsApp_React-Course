@@ -1,7 +1,37 @@
-const toggleDetails = () => {
+class Visibility extends React.Component {
+    constructor(props) {
+        super(props);
+        this.toggleDetails = this.toggleDetails.bind(this);
+        this.state = {
+            showDetails: true
+        }
+    }
+
+    toggleDetails() {
+        this.setState((prevState) => {
+            return {
+                showDetails: !prevState.showDetails
+            };
+        });
+    }
+    
+    render() {
+        return (
+            <div>
+                <h1>Visibility Toggle</h1>
+                <button onClick={this.toggleDetails}>{this.state.showDetails ? 'Show details' : 'Hide details'}</button>
+                <p>{this.state.showDetails ? 'Testing details' : null}</p>
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(<Visibility />, document.getElementById('app'))
+
+
+/*const toggleDetails = () => {
     showDetails = !showDetails;
     render();
-};
 
 let showDetails = true;
 
@@ -16,7 +46,6 @@ const render = () => {
     );
     
     const appRoot = document.getElementById('app');
-    ReactDOM.render(template, appRoot);
+    ReactDOM.render(template, appRoot); }
 }
-
-render();
+render();*/
