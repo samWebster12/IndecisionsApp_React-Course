@@ -5,9 +5,10 @@
   "author": "samWebster12",
   "license": "MIT",
   "scripts": {
-    "compile:jsx": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react",
-    "watch:jsx": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
-
+    "compile:app": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react",
+    "watch:app": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "compile:other": "babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react",
+    "watch:other": "babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
 
   "dependencies": {

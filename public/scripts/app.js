@@ -1,13 +1,36 @@
 'use strict';
 
-console.log('App is running');
+var toggleDetails = function toggleDetails() {
+    showDetails = !showDetails;
+    render();
+};
 
-//JSX - JavaScript XML
-var template = React.createElement(
-  'h1',
-  null,
-  'Indecisions App'
-);
-var appRoot = document.getElementById('app');
+var showDetails = true;
 
-ReactDOM.render(template, appRoot);
+//Render
+var render = function render() {
+    var template = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Visibility Toggle'
+        ),
+        React.createElement(
+            'button',
+            { onClick: toggleDetails },
+            showDetails ? 'Show details' : 'Hide details'
+        ),
+        React.createElement(
+            'p',
+            null,
+            showDetails ? 'This is a message' : null
+        )
+    );
+
+    var appRoot = document.getElementById('app');
+    ReactDOM.render(template, appRoot);
+};
+
+render();
